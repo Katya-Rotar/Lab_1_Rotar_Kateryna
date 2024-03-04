@@ -11,6 +11,24 @@
 "Hello WORLD"<br>
 <button value="Кнопка вітання">Привітати СВІТ</button>
 <script>
+    // Створення кнопки "Приховати привітання"
+    var hideButton = document.createElement('button');
+    hideButton.className = "hideGreeting";
+    hideButton.id = "hideGreeting";
+    hideButton.style.display = "none"; // приховуємо її
+    hideButton.appendChild(document.createTextNode("Приховати привітання"));
+    document.body.appendChild(hideButton); // Додаємо кнопку до сторінки
+
+    // Додавання обробника події для кнопки "Приховати привітання"
+    document.getElementById("hideGreeting").onclick = function() {
+            var myh1 = document.querySelector('h1');
+            if (myh1) {
+            myh1.remove(); // Видаляємо елемент заголовку, якщо він існує
+            }
+            var myButton = document.querySelector('.hideGreeting');
+            myButton.style.display = "none"; // Приховуємо кнопку "Приховати привітання"
+            document.querySelector('button').style.display = "inline"; //Робимо кнопку "Привітати СВІТ" видимою
+        };
      // Створення обробника події «кліку»
     document.querySelector('button').onclick = myFunction;
     function myFunction() {
@@ -34,6 +52,8 @@
         document.getElementsByTagName("h1")[0].style.color = "red";
         document.getElementById("big").style.fontSize = "4em";
         document.getElementById("big").style.textAlign = "center";
+
+        hideButton.style.display = "inline"; // Робимо кнопку "Приховати привітання" видимою
     }
 </script>
 </body>
